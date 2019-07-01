@@ -1,7 +1,7 @@
 require "aws/sns/configurator/version"
 
-module Aws
-  module Sns
+module AWS
+  module SNS
     module Configurator
       class Error < StandardError; end
       # Your code goes here...
