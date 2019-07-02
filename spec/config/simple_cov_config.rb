@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require 'coveralls'
 require 'simplecov'
 require 'simplecov-console'
 
 module SimpleCovConfig
   def self.configure
-    Coveralls.wear!
     SimpleCov.formatter = SimpleCov::Formatter::Console
     SimpleCov.minimum_coverage 100
     SimpleCov.start do

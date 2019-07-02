@@ -13,7 +13,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'coveralls', require: false
   gem 'factory_bot'
   gem 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
   gem 'rspec'
