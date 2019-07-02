@@ -4,4 +4,10 @@
 require 'bundler/setup'
 require 'aws/sns/configurator'
 require 'irb'
+require 'dotenv'
+require 'awesome_print'
+require 'pry'
+
+Dotenv.load('.env.development')
+
 IRB.start(__FILE__)
