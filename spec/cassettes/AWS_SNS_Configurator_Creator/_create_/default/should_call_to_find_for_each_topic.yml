@@ -1,0 +1,199 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=CreateTopic&Name=prices_production_prices_aupdate_warning&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214429Z
+      X-Amz-Content-Sha256:
+      - abe209b9798c48638f7722be62fa5ac41ae76ec16376f26cc3febf656c9b2be2
+      Content-Length:
+      - '83'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 0dd36ee6-155d-53a3-9d0a-3b73c7231bd3
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '347'
+      Date:
+      - Tue, 02 Jul 2019 21:44:29 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <CreateTopicResult>
+            <TopicArn>arn:aws:sns:us-east-2:381158256258:prices_production_prices_aupdate_warning</TopicArn>
+          </CreateTopicResult>
+          <ResponseMetadata>
+            <RequestId>0dd36ee6-155d-53a3-9d0a-3b73c7231bd3</RequestId>
+          </ResponseMetadata>
+        </CreateTopicResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:44:30 GMT
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=CreateTopic&Name=prices_production_prices_aupdate_warning_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214430Z
+      X-Amz-Content-Sha256:
+      - 9e24fa43566a50f412efbd073edb67fe774d019d09388c2b10cfe02c3ee1a20e
+      Content-Length:
+      - '92'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 6d8aa4a1-d03d-5bce-8094-f13402439e79
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '356'
+      Date:
+      - Tue, 02 Jul 2019 21:44:30 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <CreateTopicResult>
+            <TopicArn>arn:aws:sns:us-east-2:381158256258:prices_production_prices_aupdate_warning_failures</TopicArn>
+          </CreateTopicResult>
+          <ResponseMetadata>
+            <RequestId>6d8aa4a1-d03d-5bce-8094-f13402439e79</RequestId>
+          </ResponseMetadata>
+        </CreateTopicResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:44:31 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=CreateTopic&Name=prices_production_prices_aadjuster_alert&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214431Z
+      X-Amz-Content-Sha256:
+      - 51c074cd49d74e3aee69fa807fa964cacab8daa1febae9732beeeaea58c20434
+      Content-Length:
+      - '83'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 8617dd14-e146-55d0-a873-888133390d30
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '347'
+      Date:
+      - Tue, 02 Jul 2019 21:44:30 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <CreateTopicResult>
+            <TopicArn>arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aadjuster_alert</TopicArn>
+          </CreateTopicResult>
+          <ResponseMetadata>
+            <RequestId>8617dd14-e146-55d0-a873-888133390d30</RequestId>
+          </ResponseMetadata>
+        </CreateTopicResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:44:31 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=CreateTopic&Name=prices_production_prices_aadjuster_alert_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214431Z
+      X-Amz-Content-Sha256:
+      - 6ebacf56d8e3917b0eed3fe278452ad8be45a3cb108723ad6aa7584c8ed1971b
+      Content-Length:
+      - '92'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - cd58c8e0-70d8-5ec8-b5e3-9d75a2a72829
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '356'
+      Date:
+      - Tue, 02 Jul 2019 21:44:31 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <CreateTopicResult>
+            <TopicArn>arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aadjuster_alert_failures</TopicArn>
+          </CreateTopicResult>
+          <ResponseMetadata>
+            <RequestId>cd58c8e0-70d8-5ec8-b5e3-9d75a2a72829</RequestId>
+          </ResponseMetadata>
+        </CreateTopicResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:44:31 GMT
+recorded_with: VCR 5.0.0

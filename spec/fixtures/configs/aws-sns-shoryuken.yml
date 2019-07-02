@@ -1,0 +1,12 @@
+---
+region: 'us-east-1'
+prefix: 'prices'
+suffix: 'warning'
+environment: 'production'
+failures: true
+topics:
+  - name: 'prices_aaupdate'
+    region: 'us-east-2'
+  - name: 'prices_aaadjuster'
+    suffix: 'alert'
+    region: 'sa-east-1'

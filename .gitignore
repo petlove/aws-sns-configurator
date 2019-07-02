@@ -1,9 +1,12 @@
 /.bundle/
 /.yardoc
 /_yardoc/
+/config/
 /coverage/
 /doc/
 /pkg/
 /spec/reports/
 /tmp/
 .rspec_status
+*.development
+*.test

@@ -24,7 +24,21 @@ module AWS
           build_failures!(options)
         end
 
+        def create!(client)
+          client.aws.create_topic(name: @name_formatted)
+        end
+
+        def find!(client)
+          client.aws.get_topic_attributes(topic_arn: @arn)
+        rescue Aws::SNS::Errors::NotFound, Aws::SNS::Errors::InvalidClientTokenId
+          false
+        end
+
         private
+
+        def account_id
+          ENV['AWS_ACCOUNT_ID']
+        end
 
         def validate!
           REQUIRED_ACCESSORS.each do |accessor_name|
@@ -43,7 +57,7 @@ module AWS
         end
 
         def build_arn!
-          @arn = ['arn:aws:sns', @region, ENV['AWS_ACCOUNT_ID'], @name_formatted].compact.join(':')
+          @arn = ['arn:aws:sns', @region, account_id, @name_formatted].compact.join(':')
         end
       end
     end

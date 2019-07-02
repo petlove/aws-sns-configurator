@@ -2,7 +2,7 @@
 
 RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
   describe '#initialize' do
-    before { ENV['AWS_ACCOUNT_ID'] = '123456789' }
+    before { allow_any_instance_of(described_class).to receive(:account_id).and_return('123456789') }
     subject { described_class.new(options) }
 
     context 'without name' do
@@ -80,6 +80,37 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
           expect(subject.failures.name_formatted).to eq('prices_production_update_price_warning_failures')
           expect(subject.failures.arn).to eq('arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning_failures')
         end
+      end
+    end
+  end
+
+  describe '#create!' do
+    let(:topic) { build :topic }
+    let(:client) { build :client }
+    subject { topic.create!(client) }
+
+    it 'should create the topic', :vcr do
+      expect(subject.topic_arn).to eq(topic.arn)
+    end
+  end
+
+  describe '#find!' do
+    let(:client) { build :client }
+    subject { topic.find!(client) }
+
+    context 'with existing topic' do
+      let(:topic) { build :topic }
+
+      it 'should find the topic', :vcr do
+        is_expected.to be_truthy
+      end
+    end
+
+    context 'without existing topic' do
+      let(:topic) { build :topic, arn: 'arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning' }
+
+      it 'shouldnt find the topic', :vcr do
+        is_expected.to be_falsey
       end
     end
   end

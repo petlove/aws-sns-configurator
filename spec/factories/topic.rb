@@ -11,7 +11,5 @@ FactoryBot.define do
     environment { 'production' }
     tag { 'strict' }
     failures { build :topic, suffix: 'warning_failures', failures: nil }
-    name_formatted { 'prices_production_update_price_warning' }
-    arn { 'arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning' }
   end
 end

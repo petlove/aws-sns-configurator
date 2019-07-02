@@ -1,0 +1,199 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Aus-east-2%3A381158256258%3Aprices_production_prices_aaupdate_warning&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214544Z
+      X-Amz-Content-Sha256:
+      - '08be7c7e6618499618c029acaece157d663409cbf964d3376bfb813b37c2746e'
+      Content-Length:
+      - '140'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      X-Amzn-Requestid:
+      - c2e0af61-d017-5c37-a16f-faf402df4204
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '259'
+      Date:
+      - Tue, 02 Jul 2019 21:45:44 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ErrorResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>NotFound</Code>
+            <Message>Topic does not exist</Message>
+          </Error>
+          <RequestId>c2e0af61-d017-5c37-a16f-faf402df4204</RequestId>
+        </ErrorResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:45:44 GMT
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Aus-east-2%3A381158256258%3Aprices_production_prices_aaupdate_warning_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214544Z
+      X-Amz-Content-Sha256:
+      - 114512fa1d0107ea9a8bad2103de575ce78c472d299b0bf943bcc8506964f7fa
+      Content-Length:
+      - '149'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      X-Amzn-Requestid:
+      - dd5b1840-2499-5b7c-afa8-4dd5f650f2eb
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '259'
+      Date:
+      - Tue, 02 Jul 2019 21:45:44 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ErrorResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>NotFound</Code>
+            <Message>Topic does not exist</Message>
+          </Error>
+          <RequestId>dd5b1840-2499-5b7c-afa8-4dd5f650f2eb</RequestId>
+        </ErrorResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:45:45 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Asa-east-1%3A381158256258%3Aprices_production_prices_aaadjuster_alert&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214545Z
+      X-Amz-Content-Sha256:
+      - e0639fe9d819f2c935d7e0c6f050233e4a6cb68c3180595717a1bf52d209b9bc
+      Content-Length:
+      - '140'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      X-Amzn-Requestid:
+      - c19427de-3c38-5158-bb0c-724beef1af9f
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '259'
+      Date:
+      - Tue, 02 Jul 2019 21:45:45 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ErrorResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>NotFound</Code>
+            <Message>Topic does not exist</Message>
+          </Error>
+          <RequestId>c19427de-3c38-5158-bb0c-724beef1af9f</RequestId>
+        </ErrorResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:45:45 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Asa-east-1%3A381158256258%3Aprices_production_prices_aaadjuster_alert_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T214545Z
+      X-Amz-Content-Sha256:
+      - 66fe819731380ed7c916903e201cab66b858f15fc99e53d56d77b26bbe277e2f
+      Content-Length:
+      - '149'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      X-Amzn-Requestid:
+      - 3248d41b-f9a2-53fb-ad30-818e2b6b5efb
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '259'
+      Date:
+      - Tue, 02 Jul 2019 21:45:44 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <ErrorResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>NotFound</Code>
+            <Message>Topic does not exist</Message>
+          </Error>
+          <RequestId>3248d41b-f9a2-53fb-ad30-818e2b6b5efb</RequestId>
+        </ErrorResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:45:45 GMT
+recorded_with: VCR 5.0.0

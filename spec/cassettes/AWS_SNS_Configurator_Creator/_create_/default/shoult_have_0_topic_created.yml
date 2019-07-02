@@ -1,0 +1,339 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Aus-east-2%3A381158256258%3Aprices_production_prices_aaupdate_warning&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T215242Z
+      X-Amz-Content-Sha256:
+      - '08be7c7e6618499618c029acaece157d663409cbf964d3376bfb813b37c2746e'
+      Content-Length:
+      - '140'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - 469abb19-4d34-5fa5-bddb-ee8c995ff195
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '2199'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Tue, 02 Jul 2019 21:52:43 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetTopicAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetTopicAttributesResult>
+            <Attributes>
+              <entry>
+                <key>Policy</key>
+                <value>{&quot;Version&quot;:&quot;2008-10-17&quot;,&quot;Id&quot;:&quot;__default_policy_ID&quot;,&quot;Statement&quot;:[{&quot;Sid&quot;:&quot;__default_statement_ID&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;AWS&quot;:&quot;*&quot;},&quot;Action&quot;:[&quot;SNS:GetTopicAttributes&quot;,&quot;SNS:SetTopicAttributes&quot;,&quot;SNS:AddPermission&quot;,&quot;SNS:RemovePermission&quot;,&quot;SNS:DeleteTopic&quot;,&quot;SNS:Subscribe&quot;,&quot;SNS:ListSubscriptionsByTopic&quot;,&quot;SNS:Publish&quot;,&quot;SNS:Receive&quot;],&quot;Resource&quot;:&quot;arn:aws:sns:us-east-2:381158256258:prices_production_prices_aaupdate_warning&quot;,&quot;Condition&quot;:{&quot;StringEquals&quot;:{&quot;AWS:SourceOwner&quot;:&quot;381158256258&quot;}}}]}</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>381158256258</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsPending</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value>arn:aws:sns:us-east-2:381158256258:prices_production_prices_aaupdate_warning</value>
+              </entry>
+              <entry>
+                <key>EffectiveDeliveryPolicy</key>
+                <value>{&quot;http&quot;:{&quot;defaultHealthyRetryPolicy&quot;:{&quot;minDelayTarget&quot;:20,&quot;maxDelayTarget&quot;:20,&quot;numRetries&quot;:3,&quot;numMaxDelayRetries&quot;:0,&quot;numNoDelayRetries&quot;:0,&quot;numMinDelayRetries&quot;:0,&quot;backoffFunction&quot;:&quot;linear&quot;},&quot;disableSubscriptionOverrides&quot;:false}}</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsConfirmed</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>DisplayName</key>
+                <value/>
+              </entry>
+              <entry>
+                <key>SubscriptionsDeleted</key>
+                <value>0</value>
+              </entry>
+            </Attributes>
+          </GetTopicAttributesResult>
+          <ResponseMetadata>
+            <RequestId>469abb19-4d34-5fa5-bddb-ee8c995ff195</RequestId>
+          </ResponseMetadata>
+        </GetTopicAttributesResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:52:43 GMT
+- request:
+    method: post
+    uri: https://sns.us-east-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Aus-east-2%3A381158256258%3Aprices_production_prices_aaupdate_warning_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.us-east-2.amazonaws.com
+      X-Amz-Date:
+      - 20190702T215243Z
+      X-Amz-Content-Sha256:
+      - 114512fa1d0107ea9a8bad2103de575ce78c472d299b0bf943bcc8506964f7fa
+      Content-Length:
+      - '149'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - f910343d-2b11-5d65-9d24-61a8ff7deab6
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '2217'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Tue, 02 Jul 2019 21:52:44 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetTopicAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetTopicAttributesResult>
+            <Attributes>
+              <entry>
+                <key>Policy</key>
+                <value>{&quot;Version&quot;:&quot;2008-10-17&quot;,&quot;Id&quot;:&quot;__default_policy_ID&quot;,&quot;Statement&quot;:[{&quot;Sid&quot;:&quot;__default_statement_ID&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;AWS&quot;:&quot;*&quot;},&quot;Action&quot;:[&quot;SNS:GetTopicAttributes&quot;,&quot;SNS:SetTopicAttributes&quot;,&quot;SNS:AddPermission&quot;,&quot;SNS:RemovePermission&quot;,&quot;SNS:DeleteTopic&quot;,&quot;SNS:Subscribe&quot;,&quot;SNS:ListSubscriptionsByTopic&quot;,&quot;SNS:Publish&quot;,&quot;SNS:Receive&quot;],&quot;Resource&quot;:&quot;arn:aws:sns:us-east-2:381158256258:prices_production_prices_aaupdate_warning_failures&quot;,&quot;Condition&quot;:{&quot;StringEquals&quot;:{&quot;AWS:SourceOwner&quot;:&quot;381158256258&quot;}}}]}</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>381158256258</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsPending</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value>arn:aws:sns:us-east-2:381158256258:prices_production_prices_aaupdate_warning_failures</value>
+              </entry>
+              <entry>
+                <key>EffectiveDeliveryPolicy</key>
+                <value>{&quot;http&quot;:{&quot;defaultHealthyRetryPolicy&quot;:{&quot;minDelayTarget&quot;:20,&quot;maxDelayTarget&quot;:20,&quot;numRetries&quot;:3,&quot;numMaxDelayRetries&quot;:0,&quot;numNoDelayRetries&quot;:0,&quot;numMinDelayRetries&quot;:0,&quot;backoffFunction&quot;:&quot;linear&quot;},&quot;disableSubscriptionOverrides&quot;:false}}</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsConfirmed</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>DisplayName</key>
+                <value/>
+              </entry>
+              <entry>
+                <key>SubscriptionsDeleted</key>
+                <value>0</value>
+              </entry>
+            </Attributes>
+          </GetTopicAttributesResult>
+          <ResponseMetadata>
+            <RequestId>f910343d-2b11-5d65-9d24-61a8ff7deab6</RequestId>
+          </ResponseMetadata>
+        </GetTopicAttributesResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:52:44 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Asa-east-1%3A381158256258%3Aprices_production_prices_aaadjuster_alert&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T215244Z
+      X-Amz-Content-Sha256:
+      - e0639fe9d819f2c935d7e0c6f050233e4a6cb68c3180595717a1bf52d209b9bc
+      Content-Length:
+      - '140'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - f86cc53c-cb5a-5d03-bcb3-90a91f367de5
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '2199'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Tue, 02 Jul 2019 21:52:43 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetTopicAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetTopicAttributesResult>
+            <Attributes>
+              <entry>
+                <key>Policy</key>
+                <value>{&quot;Version&quot;:&quot;2008-10-17&quot;,&quot;Id&quot;:&quot;__default_policy_ID&quot;,&quot;Statement&quot;:[{&quot;Sid&quot;:&quot;__default_statement_ID&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;AWS&quot;:&quot;*&quot;},&quot;Action&quot;:[&quot;SNS:GetTopicAttributes&quot;,&quot;SNS:SetTopicAttributes&quot;,&quot;SNS:AddPermission&quot;,&quot;SNS:RemovePermission&quot;,&quot;SNS:DeleteTopic&quot;,&quot;SNS:Subscribe&quot;,&quot;SNS:ListSubscriptionsByTopic&quot;,&quot;SNS:Publish&quot;,&quot;SNS:Receive&quot;],&quot;Resource&quot;:&quot;arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aaadjuster_alert&quot;,&quot;Condition&quot;:{&quot;StringEquals&quot;:{&quot;AWS:SourceOwner&quot;:&quot;381158256258&quot;}}}]}</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>381158256258</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsPending</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value>arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aaadjuster_alert</value>
+              </entry>
+              <entry>
+                <key>EffectiveDeliveryPolicy</key>
+                <value>{&quot;http&quot;:{&quot;defaultHealthyRetryPolicy&quot;:{&quot;minDelayTarget&quot;:20,&quot;maxDelayTarget&quot;:20,&quot;numRetries&quot;:3,&quot;numMaxDelayRetries&quot;:0,&quot;numNoDelayRetries&quot;:0,&quot;numMinDelayRetries&quot;:0,&quot;backoffFunction&quot;:&quot;linear&quot;},&quot;disableSubscriptionOverrides&quot;:false}}</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsConfirmed</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>DisplayName</key>
+                <value/>
+              </entry>
+              <entry>
+                <key>SubscriptionsDeleted</key>
+                <value>0</value>
+              </entry>
+            </Attributes>
+          </GetTopicAttributesResult>
+          <ResponseMetadata>
+            <RequestId>f86cc53c-cb5a-5d03-bcb3-90a91f367de5</RequestId>
+          </ResponseMetadata>
+        </GetTopicAttributesResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:52:44 GMT
+- request:
+    method: post
+    uri: https://sns.sa-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=GetTopicAttributes&TopicArn=arn%3Aaws%3Asns%3Asa-east-1%3A381158256258%3Aprices_production_prices_aaadjuster_alert_failures&Version=2010-03-31
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby3/3.58.0 ruby/2.6.2 x86_64-linux aws-sdk-sns/1.18.0
+      Host:
+      - sns.sa-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20190702T215244Z
+      X-Amz-Content-Sha256:
+      - 66fe819731380ed7c916903e201cab66b858f15fc99e53d56d77b26bbe277e2f
+      Content-Length:
+      - '149'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - ea0e453e-f5be-5f43-b461-10ab21d2c3a3
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '2217'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Tue, 02 Jul 2019 21:52:43 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <GetTopicAttributesResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+          <GetTopicAttributesResult>
+            <Attributes>
+              <entry>
+                <key>Policy</key>
+                <value>{&quot;Version&quot;:&quot;2008-10-17&quot;,&quot;Id&quot;:&quot;__default_policy_ID&quot;,&quot;Statement&quot;:[{&quot;Sid&quot;:&quot;__default_statement_ID&quot;,&quot;Effect&quot;:&quot;Allow&quot;,&quot;Principal&quot;:{&quot;AWS&quot;:&quot;*&quot;},&quot;Action&quot;:[&quot;SNS:GetTopicAttributes&quot;,&quot;SNS:SetTopicAttributes&quot;,&quot;SNS:AddPermission&quot;,&quot;SNS:RemovePermission&quot;,&quot;SNS:DeleteTopic&quot;,&quot;SNS:Subscribe&quot;,&quot;SNS:ListSubscriptionsByTopic&quot;,&quot;SNS:Publish&quot;,&quot;SNS:Receive&quot;],&quot;Resource&quot;:&quot;arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aaadjuster_alert_failures&quot;,&quot;Condition&quot;:{&quot;StringEquals&quot;:{&quot;AWS:SourceOwner&quot;:&quot;381158256258&quot;}}}]}</value>
+              </entry>
+              <entry>
+                <key>Owner</key>
+                <value>381158256258</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsPending</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>TopicArn</key>
+                <value>arn:aws:sns:sa-east-1:381158256258:prices_production_prices_aaadjuster_alert_failures</value>
+              </entry>
+              <entry>
+                <key>EffectiveDeliveryPolicy</key>
+                <value>{&quot;http&quot;:{&quot;defaultHealthyRetryPolicy&quot;:{&quot;minDelayTarget&quot;:20,&quot;maxDelayTarget&quot;:20,&quot;numRetries&quot;:3,&quot;numMaxDelayRetries&quot;:0,&quot;numNoDelayRetries&quot;:0,&quot;numMinDelayRetries&quot;:0,&quot;backoffFunction&quot;:&quot;linear&quot;},&quot;disableSubscriptionOverrides&quot;:false}}</value>
+              </entry>
+              <entry>
+                <key>SubscriptionsConfirmed</key>
+                <value>0</value>
+              </entry>
+              <entry>
+                <key>DisplayName</key>
+                <value/>
+              </entry>
+              <entry>
+                <key>SubscriptionsDeleted</key>
+                <value>0</value>
+              </entry>
+            </Attributes>
+          </GetTopicAttributesResult>
+          <ResponseMetadata>
+            <RequestId>ea0e453e-f5be-5f43-b461-10ab21d2c3a3</RequestId>
+          </ResponseMetadata>
+        </GetTopicAttributesResponse>
+    http_version:
+  recorded_at: Tue, 02 Jul 2019 21:52:44 GMT
+recorded_with: VCR 5.0.0
