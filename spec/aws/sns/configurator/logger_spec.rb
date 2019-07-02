@@ -16,7 +16,7 @@ RSpec.describe AWS::SNS::Configurator::Logger, type: :module do
     end
 
     it 'should have the project name' do
-      is_expected.to match(/[AWS::SNS:Configurator]/)
+      is_expected.to match(/[AWS::SNS::Configurator]/)
     end
 
     it 'should have the message' do
