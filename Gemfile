@@ -1,4 +1,12 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-# Specify your gem's dependencies in aws-sns-configurator.gemspec
+source 'https://rubygems.org'
+
+gem 'aws-sdk-sns', '~> 1.18.0'
+
+group :development, :test do
+  gem 'rubocop'
+  gem 'rubocop-performance'
+end
+
 gemspec
