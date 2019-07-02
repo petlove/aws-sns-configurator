@@ -95,6 +95,7 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
+    timecop (0.9.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -123,6 +124,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   simplecov-summary
+  timecop
   vcr
   webmock
 

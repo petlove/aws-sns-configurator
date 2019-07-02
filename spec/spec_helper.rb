@@ -10,6 +10,7 @@ require 'awesome_print'
 require 'config/vcr_config'
 require 'config/factory_bot_config'
 require 'pry'
+require 'timecop'
 
 Dotenv.load('.env.test')
 VCRConfig.configure
