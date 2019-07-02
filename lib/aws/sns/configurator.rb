@@ -2,6 +2,8 @@
 
 require 'aws/sns/configurator/version'
 require 'aws/sns/configurator/logger'
+require 'aws/sns/configurator/reader'
+require 'aws/sns/configurator/topic'
 require 'aws-sdk-sns'
 
 module AWS

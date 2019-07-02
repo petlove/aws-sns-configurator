@@ -1,0 +1,6 @@
+---
+region: 'us-east-1'
+prefix: 'prices'
+suffix: 'failures'
+environment: 'production'
+failures: false
