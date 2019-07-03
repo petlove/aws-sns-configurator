@@ -107,11 +107,35 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
     end
 
     context 'without existing topic' do
-      let(:topic) { build :topic, arn: 'arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning' }
+      let(:topic) { build :topic, arn: "arn:aws:sns:us-east-1:#{ENV['AWS_ACCOUNT_ID']}:prices_production_update_price_warning" }
 
       it 'shouldnt find the topic', :vcr do
         is_expected.to be_falsey
       end
+    end
+  end
+
+  describe '#subscribe!' do
+    let(:topic) { build :topic }
+    let(:client) { build :client }
+    let(:protocol) { 'sqs' }
+    let(:endpoint) { "arn:aws:sqs:us-east-1:#{ENV['AWS_ACCOUNT_ID']}:linqueta_production_queue_failures" }
+    let(:raw) { true }
+
+    subject { topic.subscribe!(client, protocol, endpoint, raw: raw) }
+
+    after { subject }
+
+    it 'should create subscription in the topic', :vcr do
+      is_expected.to be_truthy
+    end
+
+    it 'should add raw attribute', :vcr do
+      expect(topic).to receive(:raw_attribute).once.and_call_original
+    end
+
+    it 'should call to add attributes', :vcr do
+      expect(topic).to receive(:subscription_attributes!).once.and_call_original
     end
   end
 end

@@ -15,6 +15,14 @@ module AWS
         def create!(force = false)
           Creator.new(force).create!
         end
+
+        def subscribe!(topic, protocol, endpoint, options = {})
+          return unless topic
+
+          topic.subscribe!(Client.new(topic.region), protocol, endpoint, options).tap do
+            Logger.info("Subscribed: #{endpoint} -> #{topic.name_formatted} in #{topic.region}")
+          end
+        end
       end
     end
   end

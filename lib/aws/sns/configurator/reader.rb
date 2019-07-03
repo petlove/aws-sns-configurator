@@ -13,14 +13,9 @@ module AWS
         attr_accessor :config
 
         def initialize
-          options = YAML.safe_load(File.read(PATH))
-          raise WithoutContentError unless options
-
-          options = symbolize(options)
+          options = symbolize(read_file!)
           options[:topics] = options[:topics] ? options[:topics].map { |topic| symbolize(topic) } : []
           build_config!(options)
-        rescue Errno::ENOENT, WithoutContentError
-          build_config!
         end
 
         def topics!
@@ -28,6 +23,12 @@ module AWS
         end
 
         private
+
+        def read_file!
+          YAML.safe_load(File.read(PATH)).tap { |options| raise WithoutContentError unless options }
+        rescue Errno::ENOENT, WithoutContentError
+          { topics: [] }
+        end
 
         def symbolize(object)
           object.each_with_object({}) { |(k, v), memo| memo[k.to_sym] = v }

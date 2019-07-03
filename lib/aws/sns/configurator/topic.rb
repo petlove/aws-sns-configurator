@@ -34,7 +34,25 @@ module AWS
           false
         end
 
+        def subscribe!(client, protocol, endpoint, options = {})
+          subscription = client.aws.subscribe(topic_arn: @arn, protocol: protocol, endpoint: endpoint)
+          return unless subscription
+
+          attributes = options[:attributes].to_a
+          attributes << raw_attribute if options[:raw]
+          attributes.each { |a| subscription_attributes!(client, subscription, a) }
+          subscription
+        end
+
         private
+
+        def raw_attribute
+          { attribute_name: 'RawMessageDelivery', attribute_value: 'true' }
+        end
+
+        def subscription_attributes!(client, subscription, attributes)
+          client.aws.set_subscription_attributes(attributes.merge(subscription_arn: subscription.subscription_arn))
+        end
 
         def account_id
           ENV['AWS_ACCOUNT_ID']

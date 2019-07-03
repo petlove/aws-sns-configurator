@@ -13,7 +13,7 @@ RSpec.describe AWS::SNS::Configurator do
     context 'default' do
       let(:force) { false }
 
-      it 'should use the class  Creator to create the topics' do
+      it 'should use the class Creator to create the topics' do
         expect_any_instance_of(described_class::Creator).to receive(:initialize).with(false).once
         expect_any_instance_of(described_class::Creator).to receive(:create!).once
       end
@@ -25,6 +25,23 @@ RSpec.describe AWS::SNS::Configurator do
       it 'should use the class Creator to create the topics' do
         expect_any_instance_of(described_class::Creator).to receive(:initialize).with(true).once
         expect_any_instance_of(described_class::Creator).to receive(:create!).once
+      end
+    end
+  end
+
+  describe '#subscribe!' do
+    let(:topic) { build :topic }
+    subject { described_class.subscribe!(topic, protocol, endpoint, raw: raw) }
+
+    after { subject }
+
+    context 'protocol sqs' do
+      let(:protocol) { 'sqs' }
+      let(:endpoint) { 'arn' }
+      let(:raw) { true }
+
+      it 'should use subscribe through the topic' do
+        expect(topic).to receive(:subscribe!).once
       end
     end
   end
