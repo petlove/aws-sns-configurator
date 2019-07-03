@@ -11,6 +11,8 @@ require 'aws-sdk-sns'
 module AWS
   module SNS
     module Configurator
+      require 'aws/sns/configurator/railtie' if defined?(Rails)
+
       class << self
         def create!(force = false)
           Creator.new(force).create!
