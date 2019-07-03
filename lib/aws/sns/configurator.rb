@@ -22,7 +22,7 @@ module AWS
           return unless topic
 
           topic.subscribe!(Client.new(topic.region), protocol, endpoint, options).tap do
-            Logger.info("Subscribed: #{endpoint} -> #{topic.name_formatted} in #{topic.region}")
+            Logger.info("Subscribed: #{endpoint} -> #{topic.name_formatted} - #{topic.region}")
           end
         end
       end
