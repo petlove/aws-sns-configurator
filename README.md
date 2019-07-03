@@ -46,8 +46,8 @@ Out of topics list, you should define default options that won't be required in 
 | `prefix` | `nil` | no | The topic name prefix. It's inserted before the `environment`.|
 | `suffix` | `nil` | no | The topic name suffix. It's inserted after the `name`. |
 | `environment` | `nil` | no | The topic environment. It's inserted between `prefix` and `name`. |
-| `failures` | `false` | no | If the topic has a failures topic. If yes, will be created another topic with the suffix _failures_. |
-| `topics` | `[]` | yes | The topics lists. |
+| `failures` | `false` | no | If the topic has a failures topic. If yes, will be created another topic with the suffix "_failures". |
+| `topics` | `[]` | yes | The topics list. |
 | `name` | `nil` | yes | The topic name. |
 
 ### Environments
