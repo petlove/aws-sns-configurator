@@ -1,6 +1,10 @@
 # [Aws::Sns::Configurator](https://github.com/petlove/aws-sns-configurator)
 
 [![Build Status](https://travis-ci.org/petlove/aws-sns-configurator.svg?branch=master)](https://travis-ci.org/petlove/aws-sns-configurator)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/maintainability)](https://codeclimate.com/github/petlove/aws-sns-configurator/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/test_coverage)](https://codeclimate.com/github/petlove/aws-sns-configurator/test_coverage)
+
+Simple configuration to create topics and create topics subscriptions
 
 ## Installation
 
@@ -8,6 +12,11 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'aws-sns-configurator'
+```
+or the latest version:
+
+```ruby
+gem 'aws-sns-configurator', github: 'petlove/aws-sns-configurator'
 ```
 
 And then execute:
