@@ -98,28 +98,10 @@ RSpec.describe AWS::SNS::Configurator::Reader, type: :model do
     end
 
     context 'with topics' do
-      context 'without failures by default' do
-        let(:file) { 'without_failures_by_default' }
+      let(:file) { 'without_failures_by_default' }
 
-        it 'should return 2 topics' do
-          expect(subject.length).to eq(2)
-        end
-      end
-
-      context 'without failures by default and one set failures' do
-        let(:file) { 'without_failures_by_default_and_one_set_failures' }
-
-        it 'should return 3 topics' do
-          expect(subject.length).to eq(3)
-        end
-      end
-
-      context 'with failures by default' do
-        let(:file) { 'with_failures_by_default' }
-
-        it 'should return 4 topics' do
-          expect(subject.length).to eq(4)
-        end
+      it 'should return 2 topics' do
+        expect(subject.length).to eq(2)
       end
     end
   end

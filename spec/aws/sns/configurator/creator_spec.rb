@@ -26,19 +26,19 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
       let(:force) { false }
 
       it 'should call to find for each topic', :vcr do
-        expect(instance).to receive(:find_topic).exactly(4).times
+        expect(instance).to receive(:find_topic).exactly(2).times
       end
 
       it 'should call to create for each topic', :vcr do
-        expect(instance).to receive(:create_topic).exactly(4).times
+        expect(instance).to receive(:create_topic).exactly(2).times
       end
 
       it 'should call to create by region for each region' do
         expect(instance).to receive(:create_by_region).exactly(2).times
       end
 
-      it 'should have 4 topics found', :vcr do
-        expect(subject.found.length).to eq(4)
+      it 'should have 2 topics found', :vcr do
+        expect(subject.found.length).to eq(2)
       end
 
       it 'shoult have 0 topic created', :vcr do
@@ -54,7 +54,7 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
       end
 
       it 'should call to create for each topic', :vcr do
-        expect(instance).to receive(:create_topic).exactly(4).times
+        expect(instance).to receive(:create_topic).exactly(2).times
       end
 
       it 'should call to create by region for each region' do
@@ -65,8 +65,8 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
         expect(subject.found.length).to eq(0)
       end
 
-      it 'shoult have 4 topic created', :vcr do
-        expect(subject.created.length).to eq(4)
+      it 'shoult have 2 topic created', :vcr do
+        expect(subject.created.length).to eq(2)
       end
     end
   end

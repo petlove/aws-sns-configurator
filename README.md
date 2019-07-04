@@ -29,13 +29,11 @@ region: 'us-east-1'
 prefix: 'system_name'
 suffix: 'topic'
 environment: 'production'
-failures: true
 topics:
   - name: 'customer'
     region: 'sa-east-1'
   - name: 'address'
     suffix: 'alert'
-    failures: false
 ```
 
 Out of topics list, you should define default options that won't be required in the topic options. The available options are:
@@ -46,7 +44,6 @@ Out of topics list, you should define default options that won't be required in 
 | `prefix` | `nil` | no | The topic name prefix. It's inserted before the `environment`.|
 | `suffix` | `nil` | no | The topic name suffix. It's inserted after the `name`. |
 | `environment` | `nil` | no | The topic environment. It's inserted between `prefix` and `name`. |
-| `failures` | `false` | no | If the topic has a failures topic. If yes, will be created another topic with the suffix "_failures". |
 | `topics` | `[]` | yes | The topics list. |
 | `name` | `nil` | yes | The topic name. |
 
@@ -67,7 +64,6 @@ rake sns:create
 Output:
 ```bash
 [2019-07-03T14:42:31-03:00] [AWS::SNS::Configurator] INFO -- : Created: system_name_production_customer_topic - sa-east-1
-[2019-07-03T14:42:31-03:00] [AWS::SNS::Configurator] INFO -- : Created: system_name_production_customer_topic_failures - sa-east-1
 [2019-07-03T14:42:32-03:00] [AWS::SNS::Configurator] INFO -- : Created: system_name_production_address_alert - us-east-1
 ```
 
@@ -99,6 +95,13 @@ raw: true,
 attributes: [{ attribute_name: 'RawMessageDelivery', attribute_value: 'true' }]
 }
 AWS::SNS::Configurator.subscribe!(protocol, endpoint, options)
+```
+
+#### Get topics by config
+
+You could get the topics in the config using this code:
+```ruby
+AWS::SNS::Configurator.read!
 ```
 
 ## Contributing

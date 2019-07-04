@@ -25,6 +25,10 @@ module AWS
             Logger.info("Subscribed: #{endpoint} -> #{topic.name_formatted} - #{topic.region}")
           end
         end
+
+        def read!
+          Reader.new.topics!
+        end
       end
     end
   end

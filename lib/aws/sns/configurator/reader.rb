@@ -19,7 +19,7 @@ module AWS
         end
 
         def topics!
-          @config[:topics].map(&method(:build_topic!)).flatten
+          @config[:topics].map(&method(:build_topic!))
         end
 
         private
@@ -43,8 +43,7 @@ module AWS
         end
 
         def build_topic!(options)
-          topic = Topic.new(default_config.merge(options))
-          [topic, topic.failures].compact
+          Topic.new(default_config.merge(options))
         end
       end
     end

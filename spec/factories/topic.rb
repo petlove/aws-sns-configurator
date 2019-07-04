@@ -10,6 +10,5 @@ FactoryBot.define do
     suffix { 'warning' }
     environment { 'production' }
     tag { 'strict' }
-    failures { build :topic, suffix: 'warning_failures', failures: nil }
   end
 end
