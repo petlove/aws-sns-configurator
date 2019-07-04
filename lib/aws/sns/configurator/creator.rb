@@ -29,17 +29,11 @@ module AWS
         end
 
         def find_topic(topic, client)
-          topic.find!(client).tap do |found|
-            if found
-              add_found(topic)
-              Logger.info("Found: #{topic.name_formatted} - #{topic.region}")
-            end
-          end
+          topic.find!(client).tap { |found| add_found(topic) if found }
         end
 
         def create_topic(topic, client)
-          add_created(topic.create!(client))
-          Logger.info("Created: #{topic.name_formatted} - #{topic.region}")
+          add_created(topic.tap { topic.create!(client) })
         end
 
         def clear!
@@ -48,10 +42,12 @@ module AWS
         end
 
         def add_created(topic)
+          Logger.info("Created: #{topic.name_formatted} - #{topic.region}")
           @created << topic
         end
 
         def add_found(topic)
+          Logger.info("Found: #{topic.name_formatted} - #{topic.region}")
           @found << topic
         end
       end
