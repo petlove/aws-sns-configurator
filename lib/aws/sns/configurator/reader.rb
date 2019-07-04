@@ -39,7 +39,7 @@ module AWS
         end
 
         def default_config
-          @default_config ||= @config.slice(:region, :prefix, :suffix, :environment, :failures)
+          @default_config ||= @config.slice(:region, :prefix, :suffix, :environment)
         end
 
         def build_topic!(options)

@@ -54,4 +54,14 @@ RSpec.describe AWS::SNS::Configurator do
       expect_any_instance_of(described_class::Reader).to receive(:topics!)
     end
   end
+
+  describe '#publish!' do
+    subject { described_class.publish!({ name: 'customer', region: 'us-east-1' }, name: 'linqueta', blog: 'linqueta.com') }
+
+    after { subject }
+
+    it 'should use publish through the topic' do
+      expect_any_instance_of(described_class::Publisher).to receive(:publish!).once
+    end
+  end
 end

@@ -127,4 +127,13 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
       expect(topic).to receive(:subscription_attributes!).once.and_call_original
     end
   end
+
+  describe '#publish!' do
+    let(:topic) { build :topic }
+    subject { topic.publish!(name: 'linqueta', blog: 'linqueta.com') }
+
+    it 'should publish in the topic', :vcr do
+      is_expected.to be_truthy
+    end
+  end
 end

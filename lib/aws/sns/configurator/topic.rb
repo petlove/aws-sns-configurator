@@ -14,11 +14,11 @@ module AWS
           options = normalize(options)
 
           @name = options[:name]
-          @region = options[:region] || ENV['AWS_REGION']
+          @region = options[:region]
           @prefix = options[:prefix]
           @suffix = options[:suffix]
           @environment = options[:environment]
-          @metadata = options[:metadata] || {}
+          @metadata = options[:metadata]
           build_name_formatted!
           build_arn!
 
@@ -43,6 +43,10 @@ module AWS
           attributes << raw_attribute if options[:raw]
           attributes.each { |a| subscription_attributes!(subscription, a) }
           subscription
+        end
+
+        def publish!(message)
+          default_client.aws.publish(topic_arn: @arn, message: message.to_json)
         end
 
         private
