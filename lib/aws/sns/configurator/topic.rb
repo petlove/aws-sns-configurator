@@ -11,8 +11,10 @@ module AWS
         REQUIRED_ACCESSORS = %i[name region].freeze
 
         def initialize(options)
+          options = normalize(options)
+
           @name = options[:name]
-          @region = options[:region]
+          @region = options[:region] || ENV['AWS_REGION']
           @prefix = options[:prefix]
           @suffix = options[:suffix]
           @environment = options[:environment]
@@ -23,34 +25,49 @@ module AWS
           validate!
         end
 
-        def create!(client)
+        def create!(client = default_client)
           client.aws.create_topic(name: @name_formatted)
         end
 
-        def find!(client)
+        def find!(client = default_client)
           client.aws.get_topic_attributes(topic_arn: @arn)
         rescue Aws::SNS::Errors::NotFound, Aws::SNS::Errors::InvalidClientTokenId
           false
         end
 
-        def subscribe!(client, protocol, endpoint, options = {})
-          subscription = client.aws.subscribe(topic_arn: @arn, protocol: protocol, endpoint: endpoint)
+        def subscribe!(protocol, endpoint, options)
+          subscription = default_client.aws.subscribe(topic_arn: @arn, protocol: protocol, endpoint: endpoint)
           return unless subscription
 
           attributes = options[:attributes].to_a
           attributes << raw_attribute if options[:raw]
-          attributes.each { |a| subscription_attributes!(client, subscription, a) }
+          attributes.each { |a| subscription_attributes!(subscription, a) }
           subscription
         end
 
         private
 
+        def normalize(options)
+          return default_options(options) if options.is_a?(String)
+
+          default_options.merge(options.compact)
+        end
+
+        def default_options(name = nil)
+          { name: name, region: ENV['AWS_REGION'], metadata: {} }
+        end
+
+        def default_client
+          @default_client ||= Client.new(@region)
+        end
+
         def raw_attribute
           { attribute_name: 'RawMessageDelivery', attribute_value: 'true' }
         end
 
-        def subscription_attributes!(client, subscription, attributes)
-          client.aws.set_subscription_attributes(attributes.merge(subscription_arn: subscription.subscription_arn))
+        def subscription_attributes!(subscription, attributes)
+          default_client.aws
+                        .set_subscription_attributes(attributes.merge(subscription_arn: subscription.subscription_arn))
         end
 
         def account_id

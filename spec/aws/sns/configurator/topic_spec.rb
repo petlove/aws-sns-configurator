@@ -21,6 +21,31 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
       end
     end
 
+    context 'with just the name' do
+      let(:options) { 'update_price' }
+
+      context 'without AWS_REGION environment' do
+        it 'should raise RequiredFieldError' do
+          expect { subject }.to raise_error(described_class::RequiredFieldError, 'The field region is required')
+        end
+      end
+
+      context 'with AWS_REGION environment' do
+        before { ENV['AWS_REGION'] = 'us-east-1' }
+
+        it 'should have accessors' do
+          expect(subject.name).to eq('update_price')
+          expect(subject.region).to eq('us-east-1')
+          expect(subject.prefix).to be_nil
+          expect(subject.suffix).to be_nil
+          expect(subject.environment).to be_nil
+          expect(subject.metadata).to eq({})
+          expect(subject.name_formatted).to eq('update_price')
+          expect(subject.arn).to eq('arn:aws:sns:us-east-1:123456789:update_price')
+        end
+      end
+    end
+
     context 'without all options' do
       let(:options) do
         {
@@ -86,7 +111,7 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
     let(:endpoint) { "arn:aws:sqs:us-east-1:#{ENV['AWS_ACCOUNT_ID']}:linqueta_production_queue_failures" }
     let(:raw) { true }
 
-    subject { topic.subscribe!(client, protocol, endpoint, raw: raw) }
+    subject { topic.subscribe!(protocol, endpoint, raw: raw) }
 
     after { subject }
 

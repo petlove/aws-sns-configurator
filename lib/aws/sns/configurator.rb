@@ -6,6 +6,7 @@ require 'aws/sns/configurator/reader'
 require 'aws/sns/configurator/topic'
 require 'aws/sns/configurator/client'
 require 'aws/sns/configurator/creator'
+require 'aws/sns/configurator/subscriber'
 require 'aws-sdk-sns'
 
 module AWS
@@ -19,11 +20,7 @@ module AWS
         end
 
         def subscribe!(topic, protocol, endpoint, options = {})
-          return unless topic
-
-          topic.subscribe!(Client.new(topic.region), protocol, endpoint, options).tap do
-            Logger.info("Subscribed: #{endpoint} -> #{topic.name_formatted} - #{topic.region}")
-          end
+          Subscriber.new(topic, protocol, endpoint, options).subscribe!
         end
 
         def read!

@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/maintainability)](https://codeclimate.com/github/petlove/aws-sns-configurator/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/test_coverage)](https://codeclimate.com/github/petlove/aws-sns-configurator/test_coverage)
 
-Simple configuration to create topics and create topics subscriptions.
+Simple configuration to create topics, create subscriptions and publish messages.
 
 ## Installation
 
@@ -58,6 +58,8 @@ You should declare these environments to this gem works as well:
 * `AWS_ACCESS_KEY_ID`: It's your AWS access key
 * `AWS_SECRET_KEY`: It's your AWS secret key
 
+You could use the environment `AWS_REGION` as the default region.
+
 #### Tasks
 
 If you are using [Ruby on Rails](https://github.com/rails/rails), you could use this rake task:
@@ -73,7 +75,7 @@ Output:
 
 You could pass the option "force" to create them without check if they exist.
 
-#### Create
+#### Create topic
 
 You could create topics using this code:
 
@@ -87,18 +89,53 @@ or if you would like to force:
 AWS::SNS::Configurator.create!(true)
 ```
 
-#### Subscribe
+#### Subscribe in a topic
 
-You could subscribe in topics using this code:
+You could subscribe in a topic using this code:
 ```ruby
-topic = AWS::SNS::Configurator::Topic.new(name: 'customer', region: 'us-east-1')
+topic = {
+  name: 'customer',
+  region: 'us-east-1'
+}
 protocol = 'sqs'
 endpoint = "arn:aws:sqs:us-east-1:#{ENV['AWS_ACCOUNT_ID']}:customer_adjuster"
 options = {
-raw: true,
-attributes: [{ attribute_name: 'RawMessageDelivery', attribute_value: 'true' }]
+  raw: true,
+  attributes: [
+    {
+      attribute_name: 'RawMessageDelivery',
+      attribute_value: 'true'
+    }
+  ]
 }
-AWS::SNS::Configurator.subscribe!(protocol, endpoint, options)
+AWS::SNS::Configurator.subscribe!(topic, protocol, endpoint, options)
+```
+
+or using the environment `AWS_REGION`:
+
+```ruby
+AWS::SNS::Configurator.subscribe!('customer', protocol, endpoint, options)
+```
+
+#### Publish a message
+
+You could publish a message to a topic using this code:
+```ruby
+topic = {
+  name: 'customer',
+  region: 'us-east-1'
+}
+message = {
+  name: 'linqueta',
+  blog: 'linqueta.com'
+}
+AWS::SNS::Configurator.publish!(topic, message)
+```
+
+or using the environment `AWS_REGION`:
+
+```ruby
+AWS::SNS::Configurator.publish!('customer', message)
 ```
 
 #### Get topics by config

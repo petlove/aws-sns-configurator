@@ -30,8 +30,7 @@ RSpec.describe AWS::SNS::Configurator do
   end
 
   describe '#subscribe!' do
-    let(:topic) { build :topic }
-    subject { described_class.subscribe!(topic, protocol, endpoint, raw: raw) }
+    subject { described_class.subscribe!({ name: 'customer', region: 'us-east-1' }, protocol, endpoint, raw: raw) }
 
     after { subject }
 
@@ -41,12 +40,12 @@ RSpec.describe AWS::SNS::Configurator do
       let(:raw) { true }
 
       it 'should use subscribe through the topic' do
-        expect(topic).to receive(:subscribe!).once
+        expect_any_instance_of(described_class::Subscriber).to receive(:subscribe!).once
       end
     end
   end
 
-  describe '#subscribe!' do
+  describe '#read!' do
     subject { described_class.read! }
 
     after { subject }
