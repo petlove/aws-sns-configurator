@@ -6,7 +6,7 @@ module AWS
       class Topic
         class RequiredFieldError < StandardError; end
 
-        attr_accessor :name, :region, :prefix, :suffix, :environment, :tag, :name_formatted, :arn
+        attr_accessor :name, :region, :prefix, :suffix, :environment, :metadata, :name_formatted, :arn
 
         REQUIRED_ACCESSORS = %i[name region].freeze
 
@@ -16,7 +16,7 @@ module AWS
           @prefix = options[:prefix]
           @suffix = options[:suffix]
           @environment = options[:environment]
-          @tag = options[:tag]
+          @metadata = options[:metadata] || {}
           build_name_formatted!
           build_arn!
 

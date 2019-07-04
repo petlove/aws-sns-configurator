@@ -32,6 +32,9 @@ environment: 'production'
 topics:
   - name: 'customer'
     region: 'sa-east-1'
+    metadata:
+      type: 'strict'
+      reference: 'customer_events'
   - name: 'address'
     suffix: 'alert'
 ```
@@ -46,6 +49,7 @@ Out of topics list, you should define default options that won't be required in 
 | `environment` | `nil` | no | The topic environment. It's inserted between `prefix` and `name`. |
 | `topics` | `[]` | yes | The topics list. |
 | `name` | `nil` | yes | The topic name. |
+| `metadata` | `{}` | no | Any data that you want put inside the topic to identify it after read the config. |
 
 ### Environments
 

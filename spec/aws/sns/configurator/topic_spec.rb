@@ -29,7 +29,9 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
           prefix: 'prices',
           suffix: 'warning',
           environment: 'production',
-          tag: 'strict'
+          metadata: {
+            type: 'strict'
+          }
         }
       end
 
@@ -39,7 +41,7 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
         expect(subject.prefix).to eq('prices')
         expect(subject.suffix).to eq('warning')
         expect(subject.environment).to eq('production')
-        expect(subject.tag).to eq('strict')
+        expect(subject.metadata[:type]).to eq('strict')
         expect(subject.name_formatted).to eq('prices_production_update_price_warning')
         expect(subject.arn).to eq('arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning')
       end

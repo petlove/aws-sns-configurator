@@ -9,6 +9,6 @@ FactoryBot.define do
     prefix { 'prices' }
     suffix { 'warning' }
     environment { 'production' }
-    tag { 'strict' }
+    metadata { { type: 'strict' } }
   end
 end
