@@ -13,9 +13,7 @@ module AWS
         attr_accessor :config
 
         def initialize
-          options = symbolize(read_file!)
-          options[:topics] = options[:topics] ? options[:topics].map { |topic| symbolize(topic) } : []
-          build_config!(options)
+          build_config!(JSON.parse(read_file!.to_json, symbolize_names: true))
         end
 
         def topics!
@@ -25,13 +23,13 @@ module AWS
         private
 
         def read_file!
-          YAML.safe_load(File.read(PATH)).tap { |options| raise WithoutContentError unless options }
+          YAML.safe_load(File.read(PATH)).tap do |options|
+            raise WithoutContentError unless options
+
+            options['topics'] = [] unless options['topics']
+          end
         rescue Errno::ENOENT, WithoutContentError
           { topics: [] }
-        end
-
-        def symbolize(object)
-          object.each_with_object({}) { |(k, v), memo| memo[k.to_sym] = v }
         end
 
         def build_config!(value = { topics: [] })
