@@ -37,7 +37,6 @@ RSpec.describe AWS::SNS::Configurator::Reader, type: :model do
           prefix: 'prices',
           suffix: 'failures',
           environment: 'production',
-          failures: false,
           topics: []
         )
       end
@@ -52,7 +51,6 @@ RSpec.describe AWS::SNS::Configurator::Reader, type: :model do
           prefix: 'prices',
           suffix: 'warning',
           environment: 'production',
-          failures: true,
           topics: [
             {
               name: 'prices_update',
@@ -102,6 +100,10 @@ RSpec.describe AWS::SNS::Configurator::Reader, type: :model do
 
       it 'should return 2 topics' do
         expect(subject.length).to eq(2)
+      end
+
+      it 'should return topics' do
+        expect(subject.all? { |topic| topic.is_a?(AWS::SNS::Configurator::Topic) }).to be_truthy
       end
     end
   end

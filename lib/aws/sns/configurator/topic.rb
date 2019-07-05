@@ -54,7 +54,7 @@ module AWS
         def normalize(options)
           return default_options(options) if options.is_a?(String)
 
-          default_options.merge(options.compact)
+          default_options.merge(options.reject { |_key, value| value.nil? })
         end
 
         def default_options(name = nil)
