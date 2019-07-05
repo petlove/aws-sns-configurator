@@ -41,7 +41,7 @@ module AWS
 
           attributes = options[:attributes].to_a
           attributes << raw_attribute if options[:raw]
-          attributes.each { |a| subscription_attributes!(subscription, a) }
+          attributes.each { |attribute| subscription_attributes!(subscription, attribute) }
           subscription
         end
 
@@ -52,9 +52,7 @@ module AWS
         private
 
         def normalize(options)
-          return default_options(options) if options.is_a?(String)
-
-          default_options.merge(options.reject { |_key, value| value.nil? })
+          options.is_a?(String) ? default_options(options) : default_options.merge(options.compact)
         end
 
         def default_options(name = nil)
