@@ -23,13 +23,15 @@ module AWS
         private
 
         def read_file!
-          YAML.safe_load(File.read(PATH)).tap do |options|
-            raise WithoutContentError unless options
-
-            options['topics'] = [] unless options['topics']
-          end
+          YAML.safe_load(File.read(PATH)).tap(&method(:handle_options!))
         rescue Errno::ENOENT, WithoutContentError
           { topics: [] }
+        end
+
+        def handle_options!(options)
+          raise WithoutContentError unless options
+
+          options['topics'] = [] unless options['topics']
         end
 
         def build_config!(value = { topics: [] })
