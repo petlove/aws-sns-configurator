@@ -6,10 +6,10 @@ module AWS
       class Creator
         attr_accessor :topics, :force, :created, :found
 
-        def initialize(force = false)
+        def initialize(force = false, topic = nil)
           clear!
           @force = force
-          @topics = Reader.new.topics!
+          @topics = topic ? [topic] : Reader.new.topics!
         end
 
         def create!
