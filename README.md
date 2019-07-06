@@ -11,11 +11,6 @@ Simple configuration to create topics, create subscriptions and publish messages
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'aws-sns-configurator'
-```
-or the latest version:
-
-```ruby
 gem 'aws-sns-configurator', github: 'petlove/aws-sns-configurator'
 ```
 

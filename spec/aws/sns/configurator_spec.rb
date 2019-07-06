@@ -14,7 +14,7 @@ RSpec.describe AWS::SNS::Configurator do
       let(:force) { false }
 
       it 'should use the class Creator to create the topics' do
-        expect_any_instance_of(described_class::Creator).to receive(:initialize).with(false).once
+        expect_any_instance_of(described_class::Creator).to receive(:initialize).once
         expect_any_instance_of(described_class::Creator).to receive(:create!).once
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe AWS::SNS::Configurator do
       let(:force) { true }
 
       it 'should use the class Creator to create the topics' do
-        expect_any_instance_of(described_class::Creator).to receive(:initialize).with(true).once
+        expect_any_instance_of(described_class::Creator).to receive(:initialize).once
         expect_any_instance_of(described_class::Creator).to receive(:create!).once
       end
     end
