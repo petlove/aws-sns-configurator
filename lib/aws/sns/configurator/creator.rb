@@ -9,7 +9,7 @@ module AWS
         def initialize(force = false, topic = nil)
           clear!
           @force = force
-          @topics = topic ? [topic] : Reader.new.topics!
+          @topics = topic ? [topic] : AWS::SNS::Configurator.topics!
         end
 
         def create!
@@ -42,12 +42,12 @@ module AWS
         end
 
         def add_created(topic)
-          Logger.info("Created: #{topic.name_formatted} - #{topic.region}")
+          Logger.info("Topic created: #{topic.name_formatted} - #{topic.region}")
           @created << topic
         end
 
         def add_found(topic)
-          Logger.info("Found: #{topic.name_formatted} - #{topic.region}")
+          Logger.info("Topic found: #{topic.name_formatted} - #{topic.region}")
           @found << topic
         end
       end

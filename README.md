@@ -137,7 +137,7 @@ AWS::SNS::Configurator.publish!('customer', message)
 
 You could get the topics in the config using this code:
 ```ruby
-AWS::SNS::Configurator.read!
+AWS::SNS::Configurator.topics!
 ```
 
 ## Contributing

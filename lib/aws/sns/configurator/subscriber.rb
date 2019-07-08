@@ -21,7 +21,7 @@ module AWS
         private
 
         def log
-          Logger.info("Subscribed: #{@endpoint} -> #{@topic.name_formatted} - #{@topic.region}")
+          Logger.info("Endpoint subscribed: #{@endpoint} -> #{@topic.name_formatted} - #{@topic.region}")
         end
 
         def build_topic(topic)

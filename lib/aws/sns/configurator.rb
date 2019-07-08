@@ -8,6 +8,7 @@ require 'aws/sns/configurator/client'
 require 'aws/sns/configurator/creator'
 require 'aws/sns/configurator/subscriber'
 require 'aws/sns/configurator/publisher'
+require 'aws/sns/configurator/package'
 require 'aws-sdk-sns'
 
 module AWS
@@ -24,8 +25,8 @@ module AWS
           Subscriber.new(topic, protocol, endpoint, options).subscribe!
         end
 
-        def read!
-          Reader.new.topics!
+        def topics!
+          Reader.new.read!
         end
 
         def publish!(topic, message)
