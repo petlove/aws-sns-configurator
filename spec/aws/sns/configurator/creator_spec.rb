@@ -25,23 +25,10 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
     context 'default' do
       let(:force) { false }
 
-      it 'should call to find for each topic', :vcr do
-        expect(instance).to receive(:find_topic).exactly(2).times
-      end
-
-      it 'shouldnt call to create ', :vcr do
-        expect(instance).not_to receive(:create_topic)
-      end
-
-      it 'should call to create by region for each region' do
-        expect(instance).to receive(:create_by_region).exactly(2).times
-      end
-
-      it 'should have 2 topics found', :vcr do
+      it 'should have 2 topics found and 0 created', :vcr do
+        puts AWS::SNS::Configurator.topics!
+        puts Dir['./spec/fixtures/*']
         expect(subject.found.length).to eq(2)
-      end
-
-      it 'shoult have 0 topic created', :vcr do
         expect(subject.created.length).to eq(0)
       end
     end
@@ -49,23 +36,9 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
     context 'forced' do
       let(:force) { true }
 
-      it 'shouldnt call to find', :vcr do
+      it 'should have 2 topics found and 0 created', :vcr do
         expect(instance).not_to receive(:find_topic)
-      end
-
-      it 'should call to create for each topic', :vcr do
-        expect(instance).to receive(:create_topic).exactly(2).times
-      end
-
-      it 'should call to create by region for each region' do
-        expect(instance).to receive(:create_by_region).exactly(2).times
-      end
-
-      it 'should have 0 topics found', :vcr do
         expect(subject.found.length).to eq(0)
-      end
-
-      it 'shoult have 2 topic created', :vcr do
         expect(subject.created.length).to eq(2)
       end
     end

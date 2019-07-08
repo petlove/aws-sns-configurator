@@ -8,6 +8,3 @@ default:
 topics:
   - name: 'linquetaaaa_price_updater'
     region: 'us-east-2'
-  - name: 'linquetaaaa_prices_ajuster'
-    suffix: 'alert'
-    region: 'sa-east-1'
