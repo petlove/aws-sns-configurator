@@ -24,8 +24,8 @@ module AWS
           Subscriber.new(topic, protocol, endpoint, options).subscribe!
         end
 
-        def read!
-          Reader.new.topics!
+        def topics!
+          Reader.new.read!
         end
 
         def publish!(topic, message)

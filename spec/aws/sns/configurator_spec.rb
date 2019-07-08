@@ -45,13 +45,13 @@ RSpec.describe AWS::SNS::Configurator do
     end
   end
 
-  describe '#read!' do
-    subject { described_class.read! }
+  describe '#topics!' do
+    subject { described_class.topics! }
 
     after { subject }
 
     it 'should use reader to get topics' do
-      expect_any_instance_of(described_class::Reader).to receive(:topics!)
+      expect_any_instance_of(described_class::Reader).to receive(:read!)
     end
   end
 
