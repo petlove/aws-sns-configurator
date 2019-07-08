@@ -29,8 +29,8 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
         expect(instance).to receive(:find_topic).exactly(2).times
       end
 
-      it 'should call to create for each topic', :vcr do
-        expect(instance).to receive(:create_topic).exactly(2).times
+      it 'shouldnt call to create ', :vcr do
+        expect(instance).not_to receive(:create_topic)
       end
 
       it 'should call to create by region for each region' do

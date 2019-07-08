@@ -9,7 +9,7 @@ module AWS
         def initialize(force = false, topic = nil)
           clear!
           @force = force
-          @topics = topic ? [topic] : Reader.new.topics!
+          @topics = topic ? [topic] : AWS::SNS::Configurator.topics!
         end
 
         def create!

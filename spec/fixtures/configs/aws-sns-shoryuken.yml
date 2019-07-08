@@ -1,12 +1,13 @@
 ---
-region: 'us-east-1'
-prefix: 'prices'
-suffix: 'warning'
-environment: 'production'
-failures: true
+default:
+  general:
+    region: 'us-east-1'
+    prefix: 'prices'
+    suffix: 'warning'
+    environment: 'production'
 topics:
-  - name: 'prices_aaupdate'
+  - name: 'linquetaaaa_price_updater'
     region: 'us-east-2'
-  - name: 'prices_aaadjuster'
+  - name: 'linquetaaaa_prices_ajuster'
     suffix: 'alert'
     region: 'sa-east-1'

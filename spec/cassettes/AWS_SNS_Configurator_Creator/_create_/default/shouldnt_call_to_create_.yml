@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - sns.sa-east-1.amazonaws.com
       X-Amz-Date:
-      - 20190708T194201Z
+      - 20190708T194320Z
       X-Amz-Content-Sha256:
       - 5db7b94f1b0adfcff79108689c7e72faa81dc18aeed1ab615681cdeb753e1e48
       Content-Length:
@@ -29,7 +29,7 @@ http_interactions:
       message: OK
     headers:
       X-Amzn-Requestid:
-      - 8e15c656-93ce-5fd2-9f4d-93cb0d07aa84
+      - cf3b3d36-0fb9-5625-b460-68ab90a1bb1f
       Content-Type:
       - text/xml
       Content-Length:
@@ -37,7 +37,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 08 Jul 2019 19:42:00 GMT
+      - Mon, 08 Jul 2019 19:43:20 GMT
     body:
       encoding: UTF-8
       string: |
@@ -79,11 +79,11 @@ http_interactions:
             </Attributes>
           </GetTopicAttributesResult>
           <ResponseMetadata>
-            <RequestId>8e15c656-93ce-5fd2-9f4d-93cb0d07aa84</RequestId>
+            <RequestId>cf3b3d36-0fb9-5625-b460-68ab90a1bb1f</RequestId>
           </ResponseMetadata>
         </GetTopicAttributesResponse>
     http_version:
-  recorded_at: Mon, 08 Jul 2019 19:42:01 GMT
+  recorded_at: Mon, 08 Jul 2019 19:43:20 GMT
 - request:
     method: post
     uri: https://sns.us-east-1.amazonaws.com/
@@ -100,7 +100,7 @@ http_interactions:
       Host:
       - sns.us-east-1.amazonaws.com
       X-Amz-Date:
-      - 20190708T194201Z
+      - 20190708T194320Z
       X-Amz-Content-Sha256:
       - 936ad5d0e068d2210d0cfd3e2d6db8f920fa32f5c1e638a31606bff0bab56f03
       Content-Length:
@@ -113,7 +113,7 @@ http_interactions:
       message: OK
     headers:
       X-Amzn-Requestid:
-      - 5dd37092-2a24-570c-aff8-250fb4ed0f2f
+      - 565bc40f-7747-51fd-8c8b-9192e85e18ec
       Content-Type:
       - text/xml
       Content-Length:
@@ -121,7 +121,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Mon, 08 Jul 2019 19:42:00 GMT
+      - Mon, 08 Jul 2019 19:43:21 GMT
     body:
       encoding: UTF-8
       string: |
@@ -163,9 +163,9 @@ http_interactions:
             </Attributes>
           </GetTopicAttributesResult>
           <ResponseMetadata>
-            <RequestId>5dd37092-2a24-570c-aff8-250fb4ed0f2f</RequestId>
+            <RequestId>565bc40f-7747-51fd-8c8b-9192e85e18ec</RequestId>
           </ResponseMetadata>
         </GetTopicAttributesResponse>
     http_version:
-  recorded_at: Mon, 08 Jul 2019 19:42:01 GMT
+  recorded_at: Mon, 08 Jul 2019 19:43:21 GMT
 recorded_with: VCR 5.0.0
