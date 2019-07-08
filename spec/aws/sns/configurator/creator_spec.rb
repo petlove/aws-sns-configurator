@@ -2,7 +2,7 @@
 
 RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
   describe '#initialize' do
-    before { stub_const('AWS::SNS::Configurator::Reader::PATH', './spec/fixtures/configs/aws-sns-shoryuken.yml') }
+    before { stub_const('AWS::SNS::Configurator::Reader::MAIN_FILE', './spec/fixtures/configs/aws-sns-shoryuken.yml') }
 
     it 'should have created and found empty' do
       expect(subject.created).to be_empty
@@ -18,17 +18,15 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
     let(:instance) { described_class.new(force) }
     subject { instance.create! }
 
-    before { stub_const('AWS::SNS::Configurator::Reader::PATH', './spec/fixtures/configs/aws-sns-shoryuken.yml') }
+    before { stub_const('AWS::SNS::Configurator::Reader::MAIN_FILE', './spec/fixtures/configs/aws-sns-shoryuken.yml') }
 
     after { subject }
 
     context 'default' do
       let(:force) { false }
 
-      it 'should have 2 topics found and 0 created', :vcr do
-        puts AWS::SNS::Configurator.topics!
-        puts Dir['./spec/fixtures/*']
-        expect(subject.found.length).to eq(2)
+      it 'should found 1 and create 0 topics', :vcr do
+        expect(subject.found.length).to eq(1)
         expect(subject.created.length).to eq(0)
       end
     end
@@ -36,10 +34,9 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
     context 'forced' do
       let(:force) { true }
 
-      it 'should have 2 topics found and 0 created', :vcr do
-        expect(instance).not_to receive(:find_topic)
+      it 'should found 0 and create 1 topics', :vcr do
         expect(subject.found.length).to eq(0)
-        expect(subject.created.length).to eq(2)
+        expect(subject.created.length).to eq(1)
       end
     end
   end
