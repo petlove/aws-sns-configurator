@@ -2,7 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'aws-sdk-sns', '~> 1.18.0'
+gem 'aws-sdk-sns', '>= 1.18.0'
+gem 'ruby-utils', github: 'petlove/ruby-utils'
 
 group :development, :test do
   gem 'awesome_print'
