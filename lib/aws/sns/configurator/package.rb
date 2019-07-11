@@ -53,7 +53,7 @@ module AWS
         end
 
         def build_topic_options(topic_options)
-          general_default_options.merge(topic_default_options).merge(hash_compact(topic_options))
+          general_default_options.merge(topic_default_options).merge(compact(topic_options))
         end
       end
     end

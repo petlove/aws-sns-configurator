@@ -55,7 +55,7 @@ module AWS
         private
 
         def normalize(options)
-          options.is_a?(String) ? default_options(options) : default_options.merge(hash_compact(options))
+          options.is_a?(String) ? default_options(options) : default_options.merge(compact(options))
         end
 
         def default_options(name = nil)

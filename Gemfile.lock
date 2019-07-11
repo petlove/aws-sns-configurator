@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/petlove/ruby-utils.git
-  revision: c8fa86191671ff964f13d6581d02a4ce8a2b5f64
+  revision: 364c67b0d379fb262784f00cefe1fc9bbc6fe808
   specs:
     ruby-utils (0.1.0)
 
