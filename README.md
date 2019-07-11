@@ -17,33 +17,45 @@ gem 'aws-sns-configurator', github: 'petlove/aws-sns-configurator'
 ## Usage
 
 ### Configuration
-Set the config in _/config/aws-sns-configurator.yml_ like this:
+
+You should set one or many files to configure the topics. You could use the file _/config/aws-sns-configurator.yml_ or set any file yml into the folder _/config/aws-sns-configurator_. The options are:
 ```yml
 ---
-region: 'us-east-1'
-prefix: 'system_name'
-suffix: 'topic'
-environment: 'production'
-topics:
-  - name: 'customer'
-    region: 'sa-east-1'
+default:
+  general:
+    region: 'us-east-1'
+    prefix: 'system_name'
+    suffix: 'topic'
+    environment: 'production'
     metadata:
-      type: 'strict'
-      reference: 'customer_events'
-  - name: 'address'
-    suffix: 'alert'
+      type: Square
+  topic:
+    region: 'us-east-1'
+    prefix: 'system_name'
+    suffix: 'topic'
+    environment: 'production'
+    metadata:
+      type: Triangle
+topics:
+  - name: 'product_event'
+    region: 'us-east-1'
+    prefix: 'system_name'
+    suffix: 'topic'
+    environment: 'production'
+    metadata:
+      type: Circle
 ```
-
-Out of topics list, you should define default options that won't be required in the topic options. The available options are:
-
 | Name | Default | Required | What's it |
 |------|---------|----------|-----------|
+| `default` | `nil` | false | The default values. It allows `general` and `topic`. |
+| `general` | `nil` | false | The general default values. It allows `region`, `prefix`, `suffix`, `environment` and `metadata`. |
+| `topic` | `nil` | false | The topic default values. The values overwrite `general` values. It allows `region`, `prefix`, `suffix`, `environment` and `metadata`. |
+| `topics` | `[]` | yes | The topics list. |
+| `name` | `nil` | yes | The topic name. |
 | `region` | `nil` | yes | The AWS region. |
 | `prefix` | `nil` | no | The topic name prefix. It's inserted before the `environment`.|
 | `suffix` | `nil` | no | The topic name suffix. It's inserted after the `name`. |
 | `environment` | `nil` | no | The topic environment. It's inserted between `prefix` and `name`. |
-| `topics` | `[]` | yes | The topics list. |
-| `name` | `nil` | yes | The topic name. |
 | `metadata` | `{}` | no | Any data that you want put inside the topic to identify it after read the config. |
 
 ### Environments
@@ -59,13 +71,13 @@ You could use the environment `AWS_REGION` as the default region.
 
 If you are using [Ruby on Rails](https://github.com/rails/rails), you could use this rake task:
 ```bash
-rake sns:create
+rake aws:sns:create
 ```
 
 Output:
 ```bash
-[2019-07-03T14:42:31-03:00] [AWS::SNS::Configurator] INFO -- : Created: system_name_production_customer_topic - sa-east-1
-[2019-07-03T14:42:32-03:00] [AWS::SNS::Configurator] INFO -- : Created: system_name_production_address_alert - us-east-1
+[2019-07-03T14:42:31-03:00] [AWS::SNS::Configurator] INFO -- : Topic created: system_name_production_customer_topic - sa-east-1
+[2019-07-03T14:42:32-03:00] [AWS::SNS::Configurator] INFO -- : Topic created: system_name_production_address_alert - us-east-1
 ```
 
 You could pass the option "force" to create them without check if they exist.
@@ -81,7 +93,7 @@ AWS::SNS::Configurator.create!
 or if you would like to force:
 
 ```ruby
-AWS::SNS::Configurator.create!(true)
+AWS::SNS::Configurator.create!['force']
 ```
 
 #### Subscribe in a topic
