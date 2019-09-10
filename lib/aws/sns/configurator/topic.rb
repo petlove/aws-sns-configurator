@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
-require 'ruby/utils'
-
 module AWS
   module SNS
     module Configurator
       class Topic
         class RequiredFieldError < StandardError; end
-        include ::Ruby::Utils
 
         attr_accessor :name, :region, :prefix, :suffix, :environment, :metadata, :name_formatted, :arn
 
@@ -55,7 +52,7 @@ module AWS
         private
 
         def normalize(options)
-          options.is_a?(String) ? default_options(options) : default_options.merge(compact(options))
+          options.is_a?(String) ? default_options(options) : default_options.merge(options.compact)
         end
 
         def default_options(name = nil)

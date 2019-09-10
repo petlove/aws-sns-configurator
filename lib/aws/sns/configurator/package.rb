@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require 'ruby/utils'
-
 module AWS
   module SNS
     module Configurator
       class Package
-        include ::Ruby::Utils
-
         GENERAL_DEFAULT_OPTIONS = %i[region prefix suffix environment metadata].freeze
         GENERAL_DEFAULT_PATH = %i[default general].freeze
         TOPIC_DEFAULT_PATH = %i[default topic].freeze
@@ -45,7 +41,7 @@ module AWS
         end
 
         def default_options(path, fields)
-          slice(dig(@content, path, {}), fields)
+          (@content&.dig(*path) || {}).slice(*fields)
         end
 
         def build_topic!(topic_options)
@@ -53,7 +49,7 @@ module AWS
         end
 
         def build_topic_options(topic_options)
-          general_default_options.merge(topic_default_options).merge(compact(topic_options))
+          general_default_options.merge(topic_default_options).merge(topic_options.compact)
         end
       end
     end

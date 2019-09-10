@@ -7,8 +7,8 @@ module AWS
   module SNS
     module Configurator
       class Reader
-        MAIN_FILE = './config/aws-sns-configurator.yml'.freeze
-        DIR_FILES = './config/aws-sns-configurator/*'.freeze
+        MAIN_FILE = './config/aws-sns-configurator.yml'
+        DIR_FILES = './config/aws-sns-configurator/*'
 
         attr_accessor :packages
 

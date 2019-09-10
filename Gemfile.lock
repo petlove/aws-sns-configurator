@@ -1,15 +1,9 @@
-GIT
-  remote: git://github.com/petlove/ruby-utils.git
-  revision: 364c67b0d379fb262784f00cefe1fc9bbc6fe808
-  specs:
-    ruby-utils (0.1.0)
-
 PATH
   remote: .
   specs:
-    aws-sns-configurator (0.1.0)
+    aws-sns-configurator (0.2.0)
+      aws-sdk-core (~> 3)
       aws-sdk-sns (>= 1.18.0)
-      ruby-utils (>= 0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -116,9 +110,10 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-sdk-core (~> 3)
   aws-sdk-sns (>= 1.18.0)
   aws-sns-configurator!
-  bundler (~> 1.17.3)
+  bundler (~> 2.0.2)
   dotenv
   factory_bot
   hashdiff (>= 1.0.0.beta1, < 2.0.0)
@@ -127,7 +122,6 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-performance
-  ruby-utils!
   simplecov
   simplecov-console
   simplecov-summary
@@ -135,4 +129,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.17.3
+   2.0.2
