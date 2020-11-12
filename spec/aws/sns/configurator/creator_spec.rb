@@ -15,7 +15,7 @@ RSpec.describe AWS::SNS::Configurator::Creator, type: :model do
   end
 
   describe '#create!' do
-    let(:instance) { described_class.new(force) }
+    let(:instance) { described_class.new(force: force) }
     subject { instance.create! }
 
     before { stub_const('AWS::SNS::Configurator::Reader::MAIN_FILE', './spec/fixtures/configs/aws-sns-shoryuken.yml') }
