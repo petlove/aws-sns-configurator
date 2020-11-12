@@ -6,7 +6,7 @@ RSpec.describe AWS::SNS::Configurator do
   end
 
   describe '#create!' do
-    subject { described_class.create!(force) }
+    subject { described_class.create!(force: force) }
 
     after { subject }
 
