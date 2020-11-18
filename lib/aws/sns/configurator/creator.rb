@@ -6,7 +6,7 @@ module AWS
       class Creator
         attr_accessor :topics, :force, :created, :found
 
-        def initialize(force = false, topic = nil)
+        def initialize(topic = nil, force: false)
           clear!
           @force = force
           @topics = topic ? [topic] : AWS::SNS::Configurator.topics!

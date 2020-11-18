@@ -16,6 +16,8 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
     context 'without region' do
       let(:options) { { name: 'update_price' } }
 
+      before { ENV['AWS_REGION'] = nil }
+
       it 'should raise RequiredFieldError' do
         expect { subject }.to raise_error(described_class::RequiredFieldError, 'The field region is required')
       end
