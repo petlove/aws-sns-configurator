@@ -1,8 +1,6 @@
 # [AWS::SNS::Configurator](https://github.com/petlove/aws-sns-configurator)
 
-[![Build Status](https://travis-ci.org/petlove/aws-sns-configurator.svg?branch=master)](https://travis-ci.org/petlove/aws-sns-configurator)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/maintainability)](https://codeclimate.com/github/petlove/aws-sns-configurator/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3ed50227b9170851483e/test_coverage)](https://codeclimate.com/github/petlove/aws-sns-configurator/test_coverage)
+[![Ruby](https://github.com/petlove/aws-sns-configurator/actions/workflows/ruby.yml/badge.svg)](https://github.com/petlove/aws-sns-configurator/actions/workflows/ruby.yml)
 
 Simple configuration to create topics, create subscriptions and publish messages.
 
