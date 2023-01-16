@@ -11,3 +11,4 @@
 *.development
 *.test
 Gemfile.lock
+tags
