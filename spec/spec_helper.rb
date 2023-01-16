@@ -11,6 +11,9 @@ require 'config/vcr_config'
 require 'config/factory_bot_config'
 require 'pry'
 
+# Disable logs to not pollute spec
+ENV['AWS_SNS_CONFIGURATOR_LOGGER'] = 'false'
+
 Dotenv.load('.env.test')
 VCRConfig.configure
 

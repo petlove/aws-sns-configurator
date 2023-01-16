@@ -122,6 +122,13 @@ or using the environment `AWS_REGION`:
 AWS::SNS::Configurator.subscribe!('customer', protocol, endpoint, options)
 ```
 
+#### Logging
+
+AWS::SNS:Configurator logs all the topics created in SNS by default. If you want to disable it you can pass `AWS_SNS_CONFIGURATOR_LOGGER=false` before running it.
+```bash
+AWS_SNS_CONFIGURATOR_LOGGER=false rake aws:sns:create
+```
+
 #### Publish a message
 
 You could publish a message to a topic using this code:

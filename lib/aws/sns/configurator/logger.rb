@@ -4,7 +4,7 @@ module AWS
   module SNS
     module Configurator
       module Logger
-        LOGGER_ENABLED_ENV = 'AWS_SNS_CONFIGURATOR_LOGGER'
+        LOGGER_ENABLED_ENV = ENV.fetch('AWS_SNS_CONFIGURATOR_LOGGER', 'true')
 
         class << self
           def info(message)
@@ -26,7 +26,7 @@ module AWS
           private
 
           def log?
-            ENV[LOGGER_ENABLED_ENV]
+            LOGGER_ENABLED_ENV != 'false'
           end
 
           def log(severity_level, message)
