@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sns.us-east-1.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=Subscribe&Endpoint=arn%3Aaws%3Asqs%3Aus-east-1%3A381158256258%3Alinqueta_production_queue_failures&Protocol=sqs&TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A381158256258%3Aupdate_price&Version=2010-03-31
+      string: Action=Subscribe&Endpoint=arn%3Aaws%3Asqs%3Aus-east-1%3A000000000000%3Alinqueta_production_queue_failures&Protocol=sqs&TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A000000000000%3Aupdate_price&Version=2010-03-31
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -41,7 +41,7 @@ http_interactions:
       string: |
         <SubscribeResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
           <SubscribeResult>
-            <SubscriptionArn>arn:aws:sns:us-east-1:381158256258:update_price:e1ccce4d-1917-400c-aeab-2e5eb58d37ee</SubscriptionArn>
+            <SubscriptionArn>arn:aws:sns:us-east-1:000000000000:update_price:e1ccce4d-1917-400c-aeab-2e5eb58d37ee</SubscriptionArn>
           </SubscribeResult>
           <ResponseMetadata>
             <RequestId>96c25780-bce3-566e-b620-021604d3855a</RequestId>
@@ -54,7 +54,7 @@ http_interactions:
     uri: https://sns.us-east-1.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=SetSubscriptionAttributes&AttributeName=RawMessageDelivery&AttributeValue=true&SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A381158256258%3Aupdate_price%3Ae1ccce4d-1917-400c-aeab-2e5eb58d37ee&Version=2010-03-31
+      string: Action=SetSubscriptionAttributes&AttributeName=RawMessageDelivery&AttributeValue=true&SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A000000000000%3Aupdate_price%3Ae1ccce4d-1917-400c-aeab-2e5eb58d37ee&Version=2010-03-31
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
