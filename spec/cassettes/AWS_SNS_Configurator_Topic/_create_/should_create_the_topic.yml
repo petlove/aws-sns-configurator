@@ -41,7 +41,7 @@ http_interactions:
       string: |
         <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
           <CreateTopicResult>
-            <TopicArn>arn:aws:sns:us-east-1:381158256258:update_price</TopicArn>
+            <TopicArn>arn:aws:sns:us-east-1:000000000000:update_price</TopicArn>
           </CreateTopicResult>
           <ResponseMetadata>
             <RequestId>1057d803-1843-5b60-97de-8d96d1012497</RequestId>

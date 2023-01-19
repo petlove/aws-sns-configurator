@@ -41,7 +41,7 @@ http_interactions:
       string: |
         <CreateTopicResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
           <CreateTopicResult>
-            <TopicArn>arn:aws:sns:us-east-2:381158256258:prices_production_linquetaaaa_price_updater_warning</TopicArn>
+            <TopicArn>arn:aws:sns:us-east-2:000000000000:prices_production_linquetaaaa_price_updater_warning</TopicArn>
           </CreateTopicResult>
           <ResponseMetadata>
             <RequestId>046ca131-b193-50be-95f4-f4ac189c8509</RequestId>
