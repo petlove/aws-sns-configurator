@@ -26,7 +26,15 @@ module AWS
         end
 
         def create!(client = default_client)
-          client.aws.create_topic(name: @name_formatted)
+          client.aws.create_topic(topic_params)
+        end
+
+        def topic_params
+          if @name_formatted.end_with?('.fifo')
+            { name: @name_formatted, attributes: { 'FifoTopic' => 'true' } }
+          else
+            { name: @name_formatted }
+          end
         end
 
         def find!(client = default_client)

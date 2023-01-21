@@ -73,6 +73,50 @@ RSpec.describe AWS::SNS::Configurator::Topic, type: :model do
         expect(subject.arn).to eq('arn:aws:sns:us-east-1:123456789:prices_production_update_price_warning')
       end
     end
+
+    context '#topic_params' do
+      context 'fifo topic' do
+        let(:options) do
+          {
+            name: 'update_price',
+            region: 'us-east-1',
+            prefix: 'prices',
+            suffix: 'warning',
+            environment: 'production',
+            metadata: {
+              type: 'strict'
+            }
+          }
+        end
+
+        it 'should create topic with fifo attributes' do
+          expect(subject.name_formatted).to eq('prices_production_update_price_warning')
+          expect(subject.topic_params).to eq({ name: 'prices_production_update_price_warning' })
+        end
+      end
+
+      context 'fifo topic' do
+        let(:options) do
+          {
+            name: 'update_price',
+            region: 'us-east-1',
+            prefix: 'prices',
+            suffix: 'warning.fifo',
+            environment: 'production',
+            metadata: {
+              type: 'strict'
+            }
+          }
+        end
+
+        it 'should create topic with fifo attributes' do
+          expect(subject.name_formatted).to eq('prices_production_update_price_warning.fifo')
+          expect(subject.topic_params).to eq(
+            { name: 'prices_production_update_price_warning.fifo', attributes: { 'FifoTopic' => 'true' } }
+          )
+        end
+      end
+    end
   end
 
   describe '#create!' do
