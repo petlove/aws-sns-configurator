@@ -21,6 +21,7 @@ jobs:
           AWS_ACCOUNT_ID: '000000000000'
           AWS_ACCESS_KEY_ID: 'random'
           AWS_SECRET_KEY: 'random'
+          AWS_REGION: 'us-east-1'
           AWS_SNS_CONFIGURATOR_LOGGER: true
         run: |
           bundle exec rspec
