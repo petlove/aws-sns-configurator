@@ -17,8 +17,8 @@ module AWS
       require 'aws/sns/configurator/railtie' if defined?(Rails)
 
       class << self
-        def create!(topic = nil, force: false)
-          Creator.new(topic, force: force).create!
+        def create!(topic = nil)
+          Creator.new(topic).create!
         end
 
         def subscribe!(topic, protocol, endpoint, options = {})

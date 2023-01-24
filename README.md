@@ -78,20 +78,12 @@ Output:
 [2019-07-03T14:42:32-03:00] [AWS::SNS::Configurator] INFO -- : Topic created: system_name_production_address_alert - us-east-1
 ```
 
-You could pass the option "force" to create them without check if they exist.
-
 #### Create topic
 
 You could create topics using this code:
 
 ```ruby
 AWS::SNS::Configurator.create!
-```
-
-or if you would like to force:
-
-```ruby
-AWS::SNS::Configurator.create!['force']
 ```
 
 #### Subscribe in a topic

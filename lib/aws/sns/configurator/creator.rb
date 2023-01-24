@@ -4,11 +4,10 @@ module AWS
   module SNS
     module Configurator
       class Creator
-        attr_accessor :topics, :force, :created, :found
+        attr_accessor :topics, :created, :found
 
-        def initialize(topic = nil, force: false)
+        def initialize(topic = nil)
           clear!
-          @force = force
           @topics = topic ? [topic] : AWS::SNS::Configurator.topics!
         end
 
@@ -25,11 +24,7 @@ module AWS
         def create_by_region(region, topics)
           client = Client.new(region)
 
-          topics.each { |topic| create_topic(topic, client) if @force || !find_topic(topic, client) }
-        end
-
-        def find_topic(topic, client)
-          topic.find!(client).tap { |found| add_found(topic) if found }
+          topics.each { |topic| create_topic(topic, client) }
         end
 
         def create_topic(topic, client)
@@ -44,11 +39,6 @@ module AWS
         def add_created(topic)
           Logger.info("Topic created: #{topic.name_formatted} - #{topic.region}")
           @created << topic
-        end
-
-        def add_found(topic)
-          Logger.info("Topic found: #{topic.name_formatted} - #{topic.region}")
-          @found << topic
         end
       end
     end
