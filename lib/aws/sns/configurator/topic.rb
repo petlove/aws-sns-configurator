@@ -37,12 +37,6 @@ module AWS
           end
         end
 
-        def find!(client = default_client)
-          client.aws.get_topic_attributes(topic_arn: @arn)
-        rescue Aws::SNS::Errors::NotFound, Aws::SNS::Errors::InvalidClientTokenId
-          false
-        end
-
         def subscribe!(protocol, endpoint, options)
           subscription = default_client.aws.subscribe(topic_arn: @arn, protocol: protocol, endpoint: endpoint)
           return unless subscription
